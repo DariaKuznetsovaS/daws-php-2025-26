@@ -7,12 +7,12 @@
 </head>
 <body>
     <?php
-$nombre = "Mikel";
-$edad = 22;
+$nombre = $_GET["nombre"];
+$edad = $_GET["edad"];
 
 /*echo $nombre + $edad; */
-$resultado = "Hola {$nombre} tengo {$edad} años"
-echo $resultado
+$resultado = "Mi amigo {$nombre} tiene {$edad} años";
+echo $resultado;
 ?>
     
 </body>
