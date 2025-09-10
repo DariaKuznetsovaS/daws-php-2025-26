@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eje 1</title>
+    <title>Document</title>
 </head>
 <body>
     <?php
-$nombre = "Mikel";
-$edad = 22;
-
-/*echo $nombre + $edad; */
-$resultado = "Hola {$nombre} tengo {$edad} años"
-echo $resultado
-?>
-    
+        $usuario = $_GET["usuario"];
+        echo "Hola, $usuario";
+    ?>
 </body>
 </html>
-
