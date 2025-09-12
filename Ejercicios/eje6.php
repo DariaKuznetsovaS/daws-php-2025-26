@@ -13,15 +13,14 @@ los valores mediante una petición GET.
     </p>
 
     <?php
-$numeroA = $_GET["a"];
-$numeroB = $_GET["b"];
-
-echo multiplicacion($numeroA, $numeroB);
-
 function multiplicacion($numeroA, $numeroB){
     $resultado = $numeroA * $numeroB;
     echo "El resultado de la multiplicación es: $resultado";
 }
+$numeroA = $_GET["a"];
+$numeroB = $_GET["b"];
+$resultado= multiplicacion($numeroA, $numeroB);
+include "eje6.view.php";
 ?>
     
 </body>
