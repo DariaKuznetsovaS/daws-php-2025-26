@@ -10,4 +10,5 @@ $estudiantesNotas = [
     "Lucía" => 4,
     "Jorge" => 7
 ];
+require 'eje30.view.php';
 ?>
