@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <h1>Resultado</h1>
-    //numeros recibidos por GET
-    <p><?php echo calcular($_GET['num1'], $_GET['num2']); ?></p>
+    <ul>
+        <?php foreach($estudiantesNotas as $estudiante => $nota): ?>
+            <li><?php echo $estudiante . " - " . $nota; ?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>

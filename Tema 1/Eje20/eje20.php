@@ -5,7 +5,7 @@ $numero = $_GET['numero'] ?? null;
 function sumaPares($numero){
     $resultado = 0;
     for($i=0; $i<=$numero; $i++){
-        if($i % 2 == 0){
+        if($i % 2 == 0){ //Separar si es par en una funcion diferente
             $resultado += $i;
         }
     }

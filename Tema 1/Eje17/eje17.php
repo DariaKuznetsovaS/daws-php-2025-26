@@ -9,6 +9,7 @@ $usuario = $_GET['usuario'];
 $contrasena = $_GET['contrasena'];
 
 function validar($usuario, $contrasena){
+    //Es mejor declarar las variables fuera de la función
     $diccionario = [
         "usuario1" => ["nombre" => "admin",
          "contrasena" => "1234",
@@ -19,6 +20,7 @@ function validar($usuario, $contrasena){
         "email" => "pepe@example.com"]
 
     ];
+    //aray_key_exists() o in_array()
     
     
     if($usuario == $diccionario["usuario1"]["nombre"]){
