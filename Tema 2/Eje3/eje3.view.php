@@ -20,8 +20,8 @@
         <br><br>
         <input type="submit" value="Enviar">
     </form>
-    <?php if(isset($error)): ?>
-        <p style="color:red;"><?php echo $error; ?></p>
+    <?php if(isset($resultado)): ?>
+        <p> <?php echo $resultado; ?>
     <?php endif; ?>
 </body>
 </html>

@@ -12,12 +12,13 @@ $asunto = $_POST['asunto'] ?? null;
 $email = $_POST['email'] ?? null;   
 $motivo = $_POST['motivo'] ?? null;
 $mensaje = $_POST['mensaje'] ?? null;
-$resultado = null;
+$error = "Error al enviar mensaje";
+
 if($asunto !== null && $email !== null && $motivo !== null && $mensaje !== null){
     if(validarCampos($asunto, $email, $motivo, $mensaje)){
         $resultado = "Mensaje enviado correctamente.";
     } else {
-        $resultado = "Error al enviar el mensaje.";
+        $resultado = $error;
     }
 }
 
