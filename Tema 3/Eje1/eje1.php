@@ -19,6 +19,10 @@ if (isset($_POST['texto'])) {
     $usuario = null;
 }
 
-// Cargamos la vista
+if(isset($_GET['borrar'])){
+    setcookie("usuario", NULL, -1);
+   
+}
+
 require "eje1.view.php";
 ?>
