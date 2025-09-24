@@ -20,7 +20,7 @@ if (isset($_POST['texto'])) {
 }
 
 if(isset($_GET['borrar'])){
-    setcookie("usuario", NULL, -1);
+    setcookie("usuario", null, -1);
    
 }
 
