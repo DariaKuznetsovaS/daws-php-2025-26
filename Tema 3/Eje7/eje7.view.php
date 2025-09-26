@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <title>Tienda</title>
 </head>
+<style>
+    button{
+        background-color: lightblue;
+        padding: .5em;
+        border: none;
+        border-radius: 10px;
+        margin: .5em;
+    }
+    button:hover{
+        background-color: lightpink;
+    }
+    table{
+        border: dotted lightpink ;
+    }
+    h2, h1{
+        color: lightpink;
+    }
+</style>
 <body>
     <h1>Cesta de la compra</h1>
+<!--Eje 8: idioma: -->
+<form method="post">
+        <label for="idioma">Elige idioma:</label>
+        <select name="idioma" id="idioma">
+            <option value="es" <?= (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] === 'es') ? 'selected' : '' ?>>Castellano</option>
+            <option value="eu" <?= (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] === 'eu') ? 'selected' : '' ?>>Euskera</option>
+        </select>
+        <button type="submit">Guardar</button>
+    </form>
+ 
+<?php if ($mensaje): ?>
+        <h2><?= $mensaje ?> <?= htmlspecialchars($_SESSION['usuario'] ?? '') ?></h2>
+    <?php endif; ?>
 
     <h2>Catálogo de productos</h2>
     <table>
@@ -42,7 +73,7 @@
                 ?>
                 <tr>
                     <td><?= htmlspecialchars($item['nombre']) ?></td>
-                    <td><?= number_format($item['precio'], 2) ?></td>
+                    <td><?= ($item['precio']) ?></td>
                     <td>
                         <form method="post" style="margin:0;">
                             <input type="hidden" name="producto_id" value="<?= $item['ID'] ?>">
@@ -53,7 +84,7 @@
                 <?php endforeach; ?>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td colspan="2"><strong><?= number_format($total, 2) ?> €</strong></td>
+                    <td colspan="2"><strong><?= ($total) ?> €</strong></td>
                 </tr>
             </table>
 

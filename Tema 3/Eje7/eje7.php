@@ -12,7 +12,21 @@ $productos = [
 if(!isset($_SESSION['cesta'])){
     $_SESSION['cesta']=[];
 }
-
+//Cookie para el idioma
+if(isset($_POST['idioma'])){
+    $idioma = $_POST['idioma'];
+    setcookie("idioma", $idioma);
+    $_COOKIE['idioma']=$idioma;
+}
+$mensaje = "";
+if (isset($_COOKIE['idioma'])) {
+    if ($_COOKIE['idioma'] === "es") {
+        $mensaje = "Bienvenido";
+    } elseif ($_COOKIE['idioma'] === "eu") {
+        $mensaje = "Ongi etorri";
+    }
+}
+//
 $accion = $_POST['accion'];
 
 switch($accion){
@@ -20,7 +34,7 @@ switch($accion){
         $idProducto = (int)$_POST['producto_id'];
         foreach($productos as $producto){
             if($producto['ID']===$idProducto){
-                $_SESSION['cesta'][]=$prod;
+                $_SESSION['cesta'][]=$producto;
                 break;
             }
         }
