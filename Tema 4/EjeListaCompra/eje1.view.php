@@ -8,18 +8,18 @@
 <body>
     <ul>
         <?php foreach ($resultado as $row): ?>
-            <li><?php echo $row['nombre']; ?> </li>
+            <li><?php echo $row['articulo']; ?><a href="EjeListaCompra.php?accion=eliminar">Eliminar</a> </li>
         <?php endforeach; ?>
 
     </ul>
 
     <form action="EjeListaCompra" method="post">
-           <strong> <label for="add">Añadir elemento:</label> </strong>
+           <strong> <label for="texto">Añadir elemento:</label> </strong>
             <br><br>
-            <input type="text" id="add">
+            <input type="text" id="texto">
             <button type="submit">Añadir</button>
             <br><br>
-            <a href="EjeListaCompra.php?borrar">Vaciar lista</a>
+            <a href="EjeListaCompra.php?accion=borrarTodo">Vaciar lista</a>
 
     </form>
 </body>

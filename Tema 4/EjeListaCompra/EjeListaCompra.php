@@ -17,17 +17,13 @@ function connect($host, $dbname, $user, $pass){
    }
 }
 
+require_once "db_functions.php";
+
 $dbh = connect($host, $dbname, $user, $pass);
 
-$stmt = $dbh->query("select nombre from compra");
+$accion = $_POST[]
 
-$resultado=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if(!empty($_POST['nombre'])){
-    $nombre = $_POST['nombre'];
-    $stmt = $dbh->prepare("insert into compra(nombre)values(:nombre)");
-    $stmt->execute([':nombre'=>$nombre]);
-}
 
 
 require "eje1.view.php";
