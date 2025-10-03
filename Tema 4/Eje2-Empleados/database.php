@@ -19,5 +19,4 @@ function getConnection(){
     return $db_connection;
 }
 
-
 ?>

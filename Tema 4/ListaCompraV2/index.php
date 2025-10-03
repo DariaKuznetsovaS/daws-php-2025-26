@@ -11,7 +11,7 @@ switch($accion){
     case "insertar":
          if(!empty($_POST['articulo'])) {
         agregarArticulo($_POST['articulo'],$dbh);
-        //Esto para que no vuelva a insrtar al darle a refrescar:
+        //Esto para que no vuelva a insertar al darle a refrescar:
         header("Location: index.php");
 exit;
         }
