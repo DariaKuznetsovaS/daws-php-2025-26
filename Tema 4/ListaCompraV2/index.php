@@ -1,6 +1,6 @@
 <?php
 require_once "db_functions.php";
-$accion = $_GET['accion'];
+$accion = $_GET['accion'] ?? $_POST['accion'] ?? null;
 
 switch($accion){
     case "borrar":
@@ -10,15 +10,19 @@ switch($accion){
         break;
     case "insertar":
          if(!empty($_POST['articulo'])) {
-        agregarArticulo($_POST['articulo']);
+        agregarArticulo($_POST['articulo'],$dbh);
+        //Esto para que no vuelva a insrtar al darle a refrescar:
+        header("Location: index.php");
+exit;
         }
+        
         break;
     case "borrarTodo":
         borrarTodo();
         break;
 }
 
-$lista = obtenerLista();
+$lista = obtenerLista($dbh);
 
 require "index.view.php";
 ?>

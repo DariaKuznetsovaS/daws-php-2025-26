@@ -1,18 +1,21 @@
 <?php 
 require_once "database.php";
-$dbh = connect(DB_HOST, DB_NAME, USER, PASS);
+$dbh = getConnection(DB_HOST, DB_NAME, USER, PASS);
 
-function obtenerLista(){
-    global $dbh;
+function obtenerLista($dbh){
     $stmt = $dbh->query("SELECT id, nombre AS articulo FROM compra");
     $articulos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $articulos;
 }
 
-function agregarArticulo($nombre){
-    global $dbh;
+function agregarArticulo($articulo, $dbh){
+    try{
     $stmt = $dbh->prepare("INSERT INTO compra (nombre) VALUES (:nombre)");
-    $stmt->execute([':nombre' => $nombre]);
+    $stmt->execute([':nombre' => $articulo]);
+    echo "Artíclo insertado correctamente";
+    } catch (PDOException $e){
+        error_log("Error al insertar: " .$e->getMessage());
+    }
 }
 
 function borrarPorId($id){
@@ -23,5 +26,6 @@ function borrarPorId($id){
 
 function borrarTodo(){
     global $dbh;
-    $dbh->exec("DELETE FROM compra");
+    $dbh->exec("TRUNCATE TABLE compra");
+    echo "La lista borrada correctamente";
 }

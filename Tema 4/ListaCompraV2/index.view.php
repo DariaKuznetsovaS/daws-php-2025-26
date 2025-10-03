@@ -19,7 +19,7 @@
     <h4>Añadir elemento</h4>
     <form action="index.php" method="post">
     <input type="text" name="articulo">
-    <!--<input type="hidden" name="accion" value="insertar"> -->
+    <input type="hidden" name="accion" value="insertar"> 
     <button type="submit" name="accion" value="insertar">Añadir</button>
     </form>
 

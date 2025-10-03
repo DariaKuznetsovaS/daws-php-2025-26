@@ -1,7 +1,7 @@
 <?php
 require_once "config.php";
 $db_connection = null;
-function connect(DB_HOST, DB_NAME, USER, PASS){
+function getConnection(){
     global $db_connection;
     if ($db_connection === null) {
         try {
